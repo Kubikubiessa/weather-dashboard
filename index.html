@@ -8,8 +8,30 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
     />
-    <--!link rel="stylesheet" href=".assets/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"
+      integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/plugin/timezone.min.js"
+      integrity="sha512-fG1tT/Wn/ZOyH6/Djm8HQBuqvztPQdK/vBgNFLx6DQVt3yYYDPN3bXnGZT4z4kAnURzGQwAnM3CspmhLJAD/5Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/plugin/utc.min.js"
+      integrity="sha512-z84O912dDT9nKqvpBnl1tri5IN0j/OEgMzLN1GlkpKLMscs5ZHVu+G2CYtA6dkS0YnOGi3cODt3BOPnYc8Agjg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
     <title>weather dashboard</title>
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
   </head>
   <body>
     <header class="container-fluid text-center text-light bg-dark">
@@ -57,6 +79,7 @@
                 <img id="icon1" />
                 <h4 id="temp1" class="has-text-white"></h4>
                 <h4 id="hum1" class="has-text-white"></h4>
+                <h4 id="wind1" class="has-text-white"></h4>
               </div>
             </div>
             <div class="col">
@@ -66,6 +89,7 @@
                 <img id="icon2" />
                 <h4 id="temp2" class="has-text-white"></h4>
                 <h4 id="hum2" class="has-text-white"></h4>
+                <h4 id="wind2" class="has-text-white"></h4>
               </div>
             </div>
             <div class="col">
@@ -75,6 +99,7 @@
                 <img id="icon3" />
                 <h4 id="temp3" class="has-text-white"></h4>
                 <h4 id="hum3" class="has-text-white"></h4>
+                <h4 id="wind3" class="has-text-white"></h4>
               </div>
             </div>
             <div class="col">
@@ -84,6 +109,7 @@
                 <img id="icon4" />
                 <h4 id="temp4" class="has-text-white"></h4>
                 <h4 id="hum4" class="has-text-white"></h4>
+                <h4 id="wind4" class="has-text-white"></h4>
               </div>
             </div>
             <div class="col">
@@ -93,6 +119,7 @@
                 <img id="icon5" />
                 <h4 id="temp5" class="has-text-white"></h4>
                 <h4 id="hum5" class="has-text-white"></h4>
+                <h4 id="wind5" class="has-text-white"></h4>
               </div>
             </div>
           </section>
@@ -100,27 +127,6 @@
       </div>
     </div>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"
-      integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/plugin/timezone.min.js"
-      integrity="sha512-fG1tT/Wn/ZOyH6/Djm8HQBuqvztPQdK/vBgNFLx6DQVt3yYYDPN3bXnGZT4z4kAnURzGQwAnM3CspmhLJAD/5Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/plugin/utc.min.js"
-      integrity="sha512-z84O912dDT9nKqvpBnl1tri5IN0j/OEgMzLN1GlkpKLMscs5ZHVu+G2CYtA6dkS0YnOGi3cODt3BOPnYc8Agjg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="./assets/script.js"></script>
   </body>
 </html>
