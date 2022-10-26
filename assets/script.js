@@ -1,17 +1,16 @@
 "use strict";
-//$(document).ready(function () {
+$(document).ready(function () {
 var APIKey = "8c701451be51374cf3c8dd878d14cbf6";
 var cities = [];
+ 
 var inputCity = $("#search-input").val();
-//var lat = response.lat;
-//var lon = response.lon;
-//var city;
+ 
 var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${inputCity}&appid=${APIKey}`;
 var apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${inputCity}&appid=${APIKey}`;
 
-//"http://api.openweathermap.org/data/2.5/weather?appid=" + APIKey;
+
 var weatherRootUrl = "https://api.openweathermap.org";
-//var weatherAPI = `https://api.openweathermap.org/data/2.5/weather?=appid=${APIKey}`;
+ 
 var inputForm = $("#input-form");
 var searchInput = $("#search-input");
 var searchedCities = $("#searched-cities");
@@ -33,11 +32,7 @@ function showLatestCity() {
   var latestCity = localStorage.getItem("latestCity");
   if (latestCity) {
     inputCity = latestCity;
-  } //else{
-  //inputCity = "Salt Lake City"
-  // searchCity();
-
-  // }
+  }  
 }
 showLatestCity();
 
@@ -46,7 +41,9 @@ function showSavedCities() {
   var savedCities = JSON.parse(localStorage.getItem("cities"));
   if (savedCities) {
     cities = savedCities;
-    //searchedCities.appendChild(saved)
+
+
+    
   }  
 }
 
@@ -56,44 +53,56 @@ $("#search-button").on("click", (e) => {
   e.preventDefault();
   getCity();
   searchCity();
-  //$("#search-input").val("");
-  //listCities();
+  listCitiesOnPage();
 });
-function saveCity() {
-  // $(this).siblings(".description").val();
+function saveCity() { 
   var inputCity = $("#search-input").val();
   //localStorage.setItem("latestCity", inputCity);
   if (inputCity && cities.includes(inputCity) === false) {
+    
     cities.push(inputCity);
+   
     console.log(cities)
     localStorage.setItem("cities", JSON.stringify(cities));
-  //console.log(saveCity());
+
     }
 }
-// Add city to cityShortcuts array and save all to localStorage
-     //cityShortcuts.push(cityName);
-     //window.localStorage.setItem("cityShortcuts", JSON.stringify(cityShortcuts));
+
 
 
 function getCity() {
    inputCity = $("#search-input").val();
-  //if (inputCity && cities.includes(inputCity) === false) {
-   // saveCity();
+   
     console.log(cities);
-    //}else if (!inputCity){
-    //alert("enter a valid city");
-  //}
+    
 }
+//function to list searched cities on page 
+ function listCitiesOnPage() {
+    inputCity = $("#search-input").val();
+    
+    for (let i = cities.length - 1; i >= 0; i--) {
+    
+    var shortenedCities = cities.slice(0, 5);
+    
+    }     
+    $("#searched-cities").text("");
+    shortenedCities.forEach((inputCity) => {
+         
+            
+      $("#searched-cities").prepend("<button><button>" + inputCity + "</button></button>");
+      
+      }
+    )};
+    listCitiesOnPage();
 
-//console.log(saveCity());
+ 
 function searchCity() { 
   const inputCity = document.getElementById("search-input");
   var apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${inputCity.value}&appid=${APIKey}`;
 
   fetch(apiUrl)
     .then(function (response) {
-      console.log("got here");
-      // console.log(response.json())
+       
       return response.json();
     })
     .then(function (data) {
@@ -140,8 +149,7 @@ function fetchWeather(lat, lon) {
       var localWind = data.list[0].wind.speed;
       var localIcon = data.list[0].weather[0].icon;
       $("#icon").html(
-        `<img src="http://openweathermap.org/img/wn/${apiUrl.localIcon}@2x.png">`)
-        //`<img src="icons/${localIcon}.png"/>`);
+        `<img src="http://openweathermap.org/img/wn/${localIcon}@2x.png">`)
         //`<img src="https://openweathermap.org/img/w/${localIcon}.png">`);
     
       console.log(localIcon);
@@ -221,8 +229,23 @@ function fetchWeather(lat, lon) {
       //console.log(fetchWeather());
     });
 }
-//fetchWeather()
-//});
+ //event handler to turn listed cities on page into buttons.
+$(document).on("click", "button", (e) => {
+    e.preventDefault();
+    //var lat = data.city.coord.lat;
+    //var lon = data.city.coord.lon;
+    var cityButton = $(e.targe).text();
+    inputCity = cityButton;
+    searchCity()
+    fetchWeather()
+});
+//event handler for clear button
+$("#clear-btn").click(() => {
+    localStorage.removeItem("cities");
+     
+  });
+});
+ 
 
 /*GIVEN a weather dashboard with form inputs
 
